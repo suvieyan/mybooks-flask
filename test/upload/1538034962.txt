@@ -1,0 +1,107 @@
+
+0.summary页面：
+	URL：/check/main
+	[
+		{'id':1,'hostname':'cpe-test-1','cpu_used':2,'cpu_total':100,'memory_used':998,'memory_total':3025}
+		{'id':2,'hostname':'cpe-test-2','cpu_used':2,'cpu_total':100,'memory_used':998,'memory_total':3025}
+	]
+		
+1.detail页面的系统占用top10,需要排序
+	URL：/check/1/process：
+	[
+		{'process_name':'test1','size':1024},
+		{'process_name':'test2','size':1024}
+	]
+
+2.detail页面的CPU和memory的数据区缩放图，一段时间的CPU和memory，列表长度50
+	URL：/check/1/cpu_memory_list
+	[
+	{'time':'9:43','cpu_used':2,'cpu_total':100,'memory_used':998,'memory_total':3025,}
+	{'time':'9:43','cpu_used':2,'cpu_total':100,'memory_used':998,'memory_total':3025,}
+	{'time':'9:43','cpu_used':2,'cpu_total':100,'memory_used':998,'memory_total':3025,}
+	]
+
+3.detail页面的流量初始化图：一段时间的CPU和memory，单个数据的长度10
+	URL：/check/1/traffic	
+	[
+		{
+			name:'ge0/0/0',
+			data:[
+				{date:00,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+				{date:05,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+				{date:10,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+			]	
+		},
+		{
+			name:'ge0/0/1',
+			data:[
+				{date:00,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+				{date:05,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+				{date:10,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+			]
+		},
+
+		{
+			name:'ge0/0/2',
+			data:[
+				{date:00,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+				{date:05,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+				{date:10,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+			]
+		},
+
+		{
+			name:'ge0/0/3',
+			data:[
+				{date:00,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+				{date:05,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+				{date:10,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+			]
+		},
+
+		{
+			name:'ge0/0/4',
+			data:[
+				{date:00,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+				{date:05,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+				{date:10,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+			]
+		},
+	],
+4.detail页面的流量更新图，每5分钟发送一次请求
+	URL：/check/1/traffic_update  # 5分钟发送一次请求，获取到的数据格式如下
+	[
+		{
+			name:'ge0/0/0',
+			data:[
+				{time:00,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+			]	
+		},
+		{
+			name:'ge0/0/1',
+			data:[
+				{time:00,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+			]
+		},
+
+		{
+			name:'ge0/0/2',
+			data:[
+				{time:00,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+			]
+		},
+
+		{
+			name:'ge0/0/3',
+			data:[
+				{time:00,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+			]
+		},
+
+		{
+			name:'ge0/0/4',
+			data:[
+				{time:00,inputbpsData:20,outputbpsData:20,inputppsData:20,outputppsData:20},
+			]
+		},
+	],
